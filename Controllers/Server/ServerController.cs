@@ -23,6 +23,7 @@ public class ServerController : ControllerBase
         return Ok("Server shutting down...");
     }
     [HttpGet("status")]
+    // get status
     public IActionResult Status()
     {
         RuntimeFunctions.ServerRequests++;
