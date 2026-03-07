@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using OpticalServer.Functions;
+using OpticalServer.Models;
 
 namespace OpticalServer.Controllers;
 
@@ -6,29 +8,48 @@ namespace OpticalServer.Controllers;
 [Route("api/[controller]")]
 public class LevelController : ControllerBase
 {
-    [HttpGet("list")]
-    public IActionResult LevelList()
+    private readonly LevelFunctions _levelFunctions;
+    public LevelController(DatabaseContext db)
     {
-        // level list logic
-        return Ok("LevelList");
+        _levelFunctions = new LevelFunctions(db);
+    }
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateLevel([FromBody] LevelDTO levelDto)
+    {
+        var level = await _levelFunctions.CreateLevel(levelDto.LevelName, levelDto.OwnerId);
+        if (level == null)
+            return BadRequest("Level with the same name already exists");
+        return Ok(level);
+    }
+    [HttpGet("list")]
+    public async Task<IActionResult> LevelList()
+    {
+        var levels = await _levelFunctions.GetLevelList();
+        return Ok(levels);
     }
     [HttpGet("get/{id}")]
-    public IActionResult LevelData()
+    public async Task<IActionResult> LevelData(long id)
     {
-        // load the level
-        return Ok("Level");
+        var levelData = await _levelFunctions.GetLevelData(id);
+        if (levelData == null)
+            return NotFound("Level not found");
+        return Ok(levelData);
     }
     [HttpPost("post/{id}")]
-    public IActionResult SetLevel()
+    public async Task<IActionResult> SetLevel(long id, [FromBody] string data)
     {
-        // change level data
-        return Ok("Set!");
+        var level = await _levelFunctions.EditLevel(id, data);
+        if (level == null)
+            return NotFound("Level not found");
+        return Ok(level);
     }
     [HttpDelete("delete/{id}")]
-    public IActionResult DeleteLevel()
+    public async Task<IActionResult> DeleteLevel(long id)
     {
-        // delete logic
-        return Ok("Deleted");
+        var level = await _levelFunctions.DeleteLevel(id);
+        if (level == null)
+            return NotFound("Level not found");
+        return Ok(level);
     }
     
 }

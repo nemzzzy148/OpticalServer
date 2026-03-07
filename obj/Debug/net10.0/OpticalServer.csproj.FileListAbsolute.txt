@@ -6,8 +6,10 @@ C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServe
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServer.csproj.CoreCompileInputs.cache
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServer.sourcelink.json
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\appsettings.json
+C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Data.json
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\OpticalServer.staticwebassets.endpoints.json
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\OpticalServer.exe
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\OpticalServer.deps.json
@@ -48,6 +50,8 @@ C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Microsoft.Sq
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Mono.TextTemplating.dll
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Npgsql.dll
+C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\System.ClientModel.dll
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\System.CodeDom.dll
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\System.Composition.AttributedModel.dll
@@ -157,4 +161,3 @@ C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\refint\Optic
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServer.pdb
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\OpticalServer.genruntimeconfig.cache
 C:\Users\nemes\Desktop\Optic Server\OpticalServer\obj\Debug\net10.0\ref\OpticalServer.dll
-C:\Users\nemes\Desktop\Optic Server\OpticalServer\bin\Debug\net10.0\Data.json
