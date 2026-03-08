@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OpticalServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d8d9749110980b46025279e3e83fce9bb3a1f6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1e6d3047022289cb1da1c39a5cdbe9a7cd13db8")]
 [assembly: System.Reflection.AssemblyProductAttribute("OpticalServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OpticalServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
