@@ -22,7 +22,7 @@ public class AccountController : ControllerBase
         if (authenticatedUser == null)
             return Unauthorized();
 
-        return Ok("Login successful");
+        return Ok(authenticatedUser);
     }
     [HttpPost("signup")]
     public async Task<IActionResult> SignUp([FromBody] UserDTO user)
@@ -35,7 +35,7 @@ public class AccountController : ControllerBase
 
         return Ok(user);
     }
-    [HttpDelete("delete")]
+    [HttpDelete]
     public async Task<IActionResult> DeleteAccount([FromBody] UserDTO user)
     {
         var deletingUser = await _userFunctions.GetUserByUsername(user.UserName);
@@ -44,7 +44,7 @@ public class AccountController : ControllerBase
         await _userFunctions.DeleteUser(deletingUser.UserId);
         return Ok("Account deleted");
     }
-    [HttpGet("get")]
+    [HttpGet]
     public async Task<IActionResult> GetAccountInfo([FromBody] UserDTO user)
     {
         var existingUser = await _userFunctions.GetUserByUsername(user.UserName);

@@ -10,17 +10,13 @@ using OpticalServer.Functions;
 [Route("api/[controller]")]
 public class InteractionsController : ControllerBase
 {
-    string JsonPath = "Data.json";
-    // counter vars
-    private ServerData serverData;
-    // light vars
-    public bool light = false;
 
+    private ServerData serverData;
     public InteractionsController()
     {
-        if (System.IO.File.Exists(JsonPath))
+        if (System.IO.File.Exists(Configurations.JsonDataPath))
         {
-            var json = System.IO.File.ReadAllText(JsonPath);
+            var json = System.IO.File.ReadAllText(Configurations.JsonDataPath);
             try
             {
                 serverData = JsonSerializer.Deserialize<ServerData>(json);
@@ -70,7 +66,7 @@ public class InteractionsController : ControllerBase
         {
             WriteIndented = true
         });
-        System.IO.File.WriteAllText(JsonPath,json);
+        System.IO.File.WriteAllText(Configurations.JsonDataPath,json);
     }
 
     // light functionality
@@ -78,14 +74,14 @@ public class InteractionsController : ControllerBase
     [HttpGet("lightstate")]
     public IActionResult LightState()
     {
-        RuntimeFunctions.Request("light state, current: " + light);
-        return Ok(light);
+        RuntimeFunctions.Request("light state, current: " + RuntimeFunctions.LightSwitchState);
+        return Ok(RuntimeFunctions.LightSwitchState);
     }
     [HttpGet("lightswitch")]
     public IActionResult LightSwitch()
     {
-        light = !light;
-        RuntimeFunctions.Request("light switch, new: " + light);
-        return Ok(light);
+        RuntimeFunctions.LightSwitchState = !RuntimeFunctions.LightSwitchState;
+        RuntimeFunctions.Request("light switch, new: " + RuntimeFunctions.LightSwitchState);
+        return Ok(RuntimeFunctions.LightSwitchState);
     }
 }

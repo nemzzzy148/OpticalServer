@@ -3261,19 +3261,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nemes\\.nuget\\packages\\": {}
+    "C:\\Users\\nemes\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nemes\\Desktop\\Optic Server\\OpticalServer\\OpticalServer.csproj",
+      "projectUniqueName": "C:\\Users\\nemes\\Desktop\\OpticalServer\\OpticalServer.csproj",
       "projectName": "OpticalServer",
-      "projectPath": "C:\\Users\\nemes\\Desktop\\Optic Server\\OpticalServer\\OpticalServer.csproj",
+      "projectPath": "C:\\Users\\nemes\\Desktop\\OpticalServer\\OpticalServer.csproj",
       "packagesPath": "C:\\Users\\nemes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nemes\\Desktop\\Optic Server\\OpticalServer\\obj\\",
+      "outputPath": "C:\\Users\\nemes\\Desktop\\OpticalServer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\nemes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

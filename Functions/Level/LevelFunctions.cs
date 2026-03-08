@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using OpticalServer.Models;
 
@@ -42,14 +43,14 @@ namespace OpticalServer.Functions
             RuntimeFunctions.Request($"Fetching level list");
             return await _db.Levels.ToListAsync();
         }
-        public async Task<Level> EditLevel(long levelId, string data)
+        public async Task<Level> EditLevel(long levelId, JsonElement data)
         {
             var level = await _db.Levels.FindAsync(levelId);
 
             if (level == null)
                 return null;
 
-            File.WriteAllText(Path.Combine(Configurations.LevelDataPath, level.Path), data);
+            File.WriteAllText(Path.Combine(Configurations.LevelDataPath, level.Path), data.GetRawText());
 
             RuntimeFunctions.Request($"Edited level {level.LevelName} with ID {level.LevelId}");
 

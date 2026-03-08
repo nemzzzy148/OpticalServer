@@ -4,6 +4,7 @@ namespace OpticalServer.Functions
 {
     public static class RuntimeFunctions
     {
+        public static bool LightSwitchState = false;
         public static uint Requests = 0;
         public static uint ServerRequests = 0;
         public static string Note = "Notes:\n";

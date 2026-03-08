@@ -1,4 +1,6 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using OpticalServer.Functions;
 using OpticalServer.Models;
 
@@ -27,7 +29,7 @@ public class LevelController : ControllerBase
         var levels = await _levelFunctions.GetLevelList();
         return Ok(levels);
     }
-    [HttpGet("get/{id}")]
+    [HttpGet("{id}")]
     public async Task<IActionResult> LevelData(long id)
     {
         var levelData = await _levelFunctions.GetLevelData(id);
@@ -35,15 +37,15 @@ public class LevelController : ControllerBase
             return NotFound("Level not found");
         return Ok(levelData);
     }
-    [HttpPost("post/{id}")]
-    public async Task<IActionResult> SetLevel(long id, [FromBody] string data)
+    [HttpPost("{id}")]
+    public async Task<IActionResult> SetLevel(long id, [FromBody] JsonElement data)
     {
         var level = await _levelFunctions.EditLevel(id, data);
         if (level == null)
             return NotFound("Level not found");
         return Ok(level);
     }
-    [HttpDelete("delete/{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteLevel(long id)
     {
         var level = await _levelFunctions.DeleteLevel(id);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gYXeXWkjjqU=",
+  "dgSpecHash": "2dEwges+I7o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\nemes\\Desktop\\Optic Server\\OpticalServer\\OpticalServer.csproj",
+  "projectFilePath": "C:\\Users\\nemes\\Desktop\\OpticalServer\\OpticalServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nemes\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\nemes\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
