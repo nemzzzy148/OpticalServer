@@ -29,13 +29,27 @@ public class LevelController : ControllerBase
         var levels = await _levelFunctions.GetLevelList();
         return Ok(levels);
     }
-    [HttpGet("{id}")]
-    public async Task<IActionResult> LevelData(long id)
+    [HttpGet("{id}/{userId}")]
+    public async Task<IActionResult> LevelData(long id, long userId)
     {
-        var levelData = await _levelFunctions.GetLevelData(id);
+        var levelData = await _levelFunctions.GetLevelData(id, userId,false);
         if (levelData == null)
             return NotFound("Level not found");
         return Ok(levelData);
+    }
+    [HttpGet("view/{id}/{userId}")]
+    public async Task<IActionResult> LevelViews(long id, long userId)
+    {
+        var levelData = await _levelFunctions.GetLevelData(id, userId);
+        if (levelData == null)
+            return NotFound("Level not found");
+        return Ok(levelData);
+    }
+    [HttpGet("views/{id}")]
+    public async Task<IActionResult> GetLevelViews(long id)
+    {
+        var level = await _levelFunctions.GetLevelViews(id);
+        return Ok(level);
     }
     [HttpPost("{id}")]
     public async Task<IActionResult> SetLevel(long id, [FromBody] JsonElement data)

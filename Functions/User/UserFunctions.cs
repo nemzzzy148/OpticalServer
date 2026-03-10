@@ -17,13 +17,13 @@ namespace OpticalServer.Functions
                 PasswordHash = userDto.PasswordHash
             };
 
-            _db.Users.Add(user);
+            _db.users.Add(user);
             await _db.SaveChangesAsync();
             return user;
         }
         public async Task<User> AuthenticateUser(UserDTO userDto)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(u => u.UserName == userDto.UserName);
+            var user = await _db.users.FirstOrDefaultAsync(u => u.UserName == userDto.UserName);
 
             if (user == null || user.PasswordHash != userDto.PasswordHash)
             {
@@ -38,16 +38,16 @@ namespace OpticalServer.Functions
         public async Task<User> GetUserById(long userId)
         {
             RuntimeFunctions.Request($"Fetching user with ID {userId}");
-            return await _db.Users.FindAsync(userId);
+            return await _db.users.FindAsync(userId);
         }
         public async Task<User> GetUserByUsername(string username)
         {
             RuntimeFunctions.Request($"Fetching user with username {username}");
-            return await _db.Users.FirstOrDefaultAsync(u => u.UserName == username);
+            return await _db.users.FirstOrDefaultAsync(u => u.UserName == username);
         }
         public async Task<User> ChangeUserName(long userId, string newUsername)
         {
-            var user = await _db.Users.FindAsync(userId);
+            var user = await _db.users.FindAsync(userId);
 
             if (user == null) return null;
 
@@ -60,7 +60,7 @@ namespace OpticalServer.Functions
         }
         public async Task<User> ChangePassword(long userId, string newPasswordHash)
         {
-            var user = await _db.Users.FindAsync(userId);
+            var user = await _db.users.FindAsync(userId);
 
             if (user == null) return null;
 
@@ -73,11 +73,11 @@ namespace OpticalServer.Functions
         }
         public async Task<bool> DeleteUser(long userId)
         {
-            var user = await _db.Users.FindAsync(userId);
+            var user = await _db.users.FindAsync(userId);
 
             if (user == null) return false;
 
-            _db.Users.Remove(user);
+            _db.users.Remove(user);
             await _db.SaveChangesAsync();
 
             RuntimeFunctions.Request($"Deleted user {userId}");

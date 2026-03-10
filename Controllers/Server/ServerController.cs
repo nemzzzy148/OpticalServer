@@ -8,10 +8,13 @@ namespace OpticalServer.Controllers;
 public class ServerController : ControllerBase
 {
     private readonly IHostApplicationLifetime _lifetime;
-    
-    public ServerController(IHostApplicationLifetime lifetime)
+
+    private readonly LevelReactions _reactions;
+
+    public ServerController(IHostApplicationLifetime lifetime, DatabaseContext db)
     {
         _lifetime = lifetime;
+        LevelReactions levelReactions = new LevelReactions(db);
     }
     [HttpPost("shutdown")]
     public IActionResult ShutDown()
@@ -19,7 +22,7 @@ public class ServerController : ControllerBase
         RuntimeFunctions.WriteLine("server shutting down...", false);
 
         _lifetime.StopApplication();
-        
+
         return Ok("Server shutting down...");
     }
     [HttpGet("status")]
@@ -36,7 +39,7 @@ public class ServerController : ControllerBase
         RuntimeFunctions.ServerRequests++;
         var ip = HttpContext.Connection.RemoteIpAddress?.ToString();
 
-        RuntimeFunctions.WriteLine("note("+text+") from("+ip+")",false);
+        RuntimeFunctions.WriteLine("note(" + text + ") from(" + ip + ")", false);
         RuntimeFunctions.Note += ip + ": " + text + "\n";
 
         return Ok(RuntimeFunctions.Note);
@@ -53,5 +56,14 @@ public class ServerController : ControllerBase
         RuntimeFunctions.ServerRequests++;
         RuntimeFunctions.WriteLine("Server pinged!");
         return Ok(1);
+    }
+    [HttpGet("reactions")]
+    public async Task<IActionResult> Reactions()
+    {
+        RuntimeFunctions.ServerRequests++;
+
+        var reactions = await _reactions.GetAllReactions();
+
+        return Ok(reactions);
     }
 }

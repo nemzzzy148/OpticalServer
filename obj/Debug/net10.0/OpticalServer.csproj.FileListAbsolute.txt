@@ -327,3 +327,13 @@ C:\Users\nemes\Desktop\OpticalServer\obj\Debug\net10.0\OpticalServer.pdb
 C:\Users\nemes\Desktop\OpticalServer\obj\Debug\net10.0\OpticalServer.genruntimeconfig.cache
 C:\Users\nemes\Desktop\OpticalServer\obj\Debug\net10.0\ref\OpticalServer.dll
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\Levels\4.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\web.config
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\appsettings.Development.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\appsettings.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\Data.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\Levels\3.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\Levels\4.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\OpticalServer.deps.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\OpticalServer.runtimeconfig.json
+C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\OpticalServer.staticwebassets.endpoints.json
+C:\Users\nemes\Desktop\OpticalServer\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
