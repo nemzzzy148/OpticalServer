@@ -14,6 +14,7 @@ public class AccountController : ControllerBase
     {
         _userFunctions = new UserFunctions(db);
     }
+    // logs in
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] UserDTO user)
     {

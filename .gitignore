@@ -1,0 +1,7 @@
+.vs/
+Levels/
+*.sln
+publish/
+.github/
+bin/
+obj/
