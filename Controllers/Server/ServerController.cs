@@ -57,6 +57,7 @@ public class ServerController : ControllerBase
         RuntimeFunctions.WriteLine("Server pinged!");
         return Ok(1);
     }
+    // get all reactions
     [HttpGet("reactions")]
     public async Task<IActionResult> Reactions()
     {
