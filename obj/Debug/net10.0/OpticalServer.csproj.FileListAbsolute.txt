@@ -166,7 +166,6 @@ C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\appsettings.Development.j
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\appsettings.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\Data.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\OpticalServer.staticwebassets.endpoints.json
-C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\Levels\3.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\OpticalServer.exe
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\OpticalServer.deps.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\OpticalServer.runtimeconfig.json
@@ -336,4 +335,3 @@ C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\Levels\4.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\OpticalServer.deps.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\OpticalServer.runtimeconfig.json
 C:\Users\nemes\Desktop\OpticalServer\bin\Debug\net10.0\publish\OpticalServer.staticwebassets.endpoints.json
-C:\Users\nemes\Desktop\OpticalServer\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

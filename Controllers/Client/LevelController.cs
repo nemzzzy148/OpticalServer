@@ -29,18 +29,18 @@ public class LevelController : ControllerBase
         var levels = await _levelFunctions.GetLevelList();
         return Ok(levels);
     }
-    [HttpGet("{id}/{userId}")]
-    public async Task<IActionResult> LevelData(long id, long userId)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> LevelData(long id)
     {
-        var levelData = await _levelFunctions.GetLevelData(id, userId,false);
+        var levelData = await _levelFunctions.GetLevelData(id);
         if (levelData == null)
             return NotFound("Level not found");
         return Ok(levelData);
     }
-    [HttpGet("view/{id}/{userId}")]
-    public async Task<IActionResult> LevelViews(long id, long userId)
+    [HttpGet("view/{id}")]
+    public async Task<IActionResult> LevelViews(long id)
     {
-        var levelData = await _levelFunctions.GetLevelData(id, userId);
+        var levelData = await _levelFunctions.GetLevelData(id);
         if (levelData == null)
             return NotFound("Level not found");
         return Ok(levelData);

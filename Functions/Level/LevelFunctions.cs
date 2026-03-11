@@ -64,7 +64,7 @@ namespace OpticalServer.Functions
 
             return level;
         }
-        public async Task<string> GetLevelData (long levelId, long userId, bool incrementViews = true)
+        public async Task<string> GetLevelData (long levelId, bool incrementViews = true)
         {
             var level = await _db.levels.FindAsync(levelId);
 
