@@ -1,8 +1,10 @@
-using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
+using OpticalServer.Data;
 using OpticalServer.Functions;
 using OpticalServer.Models;
+using System.Text.Json;
+using static OpticalServer.Data.LevelObject;
 
 namespace OpticalServer.Controllers;
 
@@ -30,7 +32,7 @@ public class LevelController : ControllerBase
         return Ok(levels);
     }
     [HttpGet("{id}")]
-    public async Task<IActionResult> LevelData(long id)
+    public async Task<IActionResult> GetLevelData(long id)
     {
         var levelData = await _levelFunctions.GetLevelData(id);
         if (levelData == null)
@@ -54,7 +56,22 @@ public class LevelController : ControllerBase
     [HttpPost("{id}")]
     public async Task<IActionResult> SetLevel(long id, [FromBody] JsonElement data)
     {
-        var level = await _levelFunctions.EditLevel(id, data);
+        LevelData levelData = null;
+        try
+        {
+            levelData = JsonSerializer.Deserialize<LevelObject.LevelData>(data.GetRawText());
+        }
+        catch (Exception ex)
+        {
+            RuntimeFunctions.Request("Invalid level data: " + ex.Message, true);
+            return BadRequest("Invalid level data: " + ex.Message);
+        }
+        string json = JsonSerializer.Serialize(levelData);
+
+        JsonElement jsonElement = JsonDocument.Parse(json).RootElement;
+
+        var level = await _levelFunctions.EditLevel(id, jsonElement);
+
         if (level == null)
             return NotFound("Level not found");
         return Ok(level);

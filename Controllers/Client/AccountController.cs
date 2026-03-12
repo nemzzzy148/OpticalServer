@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Mvc;
 using OpticalServer.Models;
 using OpticalServer.Functions;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace OpticalServer.Controllers;
 
@@ -35,12 +36,47 @@ public class AccountController : ControllerBase
 
         return Ok(user);
     }
+    [HttpPut("password/{newPassword}")]
+    public async Task<IActionResult> ChangePassword([FromBody] UserDTO user, string newPassword)
+    {
+        var existingUser = await _userFunctions.GetUserByUsername(user.UserName);
+
+        if (existingUser == null)
+            return NotFound("User not found");
+
+        if (existingUser.PasswordHash != user.PasswordHash) 
+            return BadRequest("Incorrect password");
+
+        var newUser = await _userFunctions.ChangePassword(existingUser.UserId, newPassword);
+
+        if (newUser != null)
+        {
+            return NotFound("Failed to change password");
+        }
+
+        return Ok("Password changed");
+    }
+    [HttpPut("username")]
+    public async Task<IActionResult> ChangeUsername([FromBody] UserDTO user)
+    {
+        var existingUser = await _userFunctions.GetUserByUsername(user.UserName);
+        if (existingUser == null)
+            return NotFound("User not found");
+
+        var newUser = await _userFunctions.ChangeUserName(existingUser.UserId, user.UserName);
+        if (newUser != null)
+        {
+            return NotFound("Failed to change username");
+        }
+        return Ok("Username changed");
+    }
     [HttpDelete]
     public async Task<IActionResult> DeleteAccount([FromBody] UserDTO user)
     {
         var deletingUser = await _userFunctions.GetUserByUsername(user.UserName);
         if (deletingUser == null)
             return NotFound("User not found");
+
         await _userFunctions.DeleteUser(deletingUser.UserId);
         return Ok("Account deleted");
     }

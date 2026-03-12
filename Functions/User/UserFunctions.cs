@@ -62,7 +62,11 @@ namespace OpticalServer.Functions
         {
             var user = await _db.users.FindAsync(userId);
 
-            if (user == null) return null;
+            if (user == null)
+            {
+                RuntimeFunctions.Request($"Failed password change attempt for user {userId}");
+                return null;
+            }
 
             user.PasswordHash = newPasswordHash;
             await _db.SaveChangesAsync();
